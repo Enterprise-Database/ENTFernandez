@@ -1,10 +1,5 @@
 var cloakElement;
 
-document.addEventListener("DOMContentLoaded", function () {
-  cloakElement = document.getElementById("premadecloaks");
-  var cloak = cloakElement.value;
-});
-
 var tab = localStorage.getItem("tab");
 if (tab) {
   try {
@@ -23,8 +18,8 @@ if (tabData.title && titleElement) titleElement.value = tabData.title;
 if (tabData.icon && iconElement) iconElement.value = tabData.icon;
 
 var settingsDefaultTab = {
-  title: "Dashboard",
-  icon: "/img/canvas.ico",
+  title: "Google",
+  icon: "/img/favicon.ico",
 };
 
 function setTitle(title = "") {
@@ -147,19 +142,37 @@ function setCloak() {
 }
 function resetTab() {
   document.title = "Dashboard";
-  document.querySelector("link[rel='icon']").href = "/img/canvas.ico";
+  document.querySelector("link[rel='icon']").href = "/img/favicon.ico";
   document.getElementById("title").value = "";
   document.getElementById("icon").value = "";
   localStorage.setItem("tab", JSON.stringify({}));
 }
 
 var panicKey = localStorage.getItem("panicKey") || "`";
-var panicLink =
-  localStorage.getItem("PanicLink") || "https://canvas.houstonisd.org/";
+var panicLink = localStorage.getItem("PanicLink") || "https://google.com/";
+
+var toggled = localStorage.getItem("aboutBlank") || "false";
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("key").value = panicKey;
   document.getElementById("link").value = panicLink;
+  cloakElement = document.getElementById("premadecloaks");
+
+  const toggle = document.getElementById("toggle");
+  if (toggled === "true") {
+    toggle.checked = true;
+  } else {
+    toggle.checked = false;
+  }
+  toggle.addEventListener("change", function () {
+    if (toggle.checked) {
+      localStorage.setItem("aboutBlank", "true");
+      toggle.checked = true;
+    } else {
+      localStorage.setItem("aboutBlank", "false");
+      toggle.checked = false;
+    }
+  });
 });
 
 function setPanicKey() {
@@ -191,8 +204,8 @@ function cloak() {
       const style = iframe.style;
       const link = doc.createElement("link");
 
-      const name = tabData.title || "Dashboard";
-      const icon = tabData.icon || "/img/canvas.ico";
+      const name = tabData.title || "Google";
+      const icon = tabData.icon || "/img/favicon.ico";
 
       doc.title = name;
       link.rel = "icon";
@@ -208,8 +221,7 @@ function cloak() {
       doc.body.appendChild(iframe);
 
       const pLink =
-        localStorage.getItem(encodeURI("pLink")) ||
-        "https://canvas.houstonisd.org/";
+        localStorage.getItem(encodeURI("pLink")) || "https://google.com";
       location.replace(pLink);
 
       const script = doc.createElement("script");
@@ -225,6 +237,35 @@ function cloak() {
   }
 }
 
+function saveSave() {
+  var data = JSON.stringify(localStorage);
+  var blob = new Blob([data], { type: "text/plain" });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  date = new Date();
+  a.download = `${date.getMonth() + 1}_${date.getDate()}_${date
+    .getFullYear()
+    .toString()
+    .slice(-2)} ${date.getHours()}:${date.getMinutes()}.gmsconfig`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function loadSave() {
+  var input = document.getElementById("uploadSave");
+  var file = input.files[0];
+  var reader = new FileReader();
+  reader.readAsText(file);
+  reader.onload = function () {
+    var data = JSON.parse(reader.result);
+    for (var key in data) {
+      localStorage.setItem(key, data[key]);
+    }
+    alert("Save Loaded!");
+    input.value = "";
+  };
+}
 var months = [
   "January",
   "February",
@@ -275,6 +316,7 @@ fetch("https://api.github.com/repos/55gms/55gms/commits")
       .toISOString()
       .split("T")[0];
     var lastCommitDate = convertDate(unformatted);
-    document.querySelector("#updated").textContent =
-      `Last Updated: ${lastCommitDate}`;
+    document.querySelector(
+      "#updated"
+    ).textContent = `Last Updated: ${lastCommitDate}`;
   });

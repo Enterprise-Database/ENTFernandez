@@ -56,6 +56,11 @@
     "image": "assets/apps/duckduckgo.png"
   },
   {
+    "name": "DuckDuckGo AI",
+    "url": "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1",
+    "image": "assets/apps/duckduckgoai.webp"
+  },
+  {
     "name": "ESPN",
     "url": "https://www.espn.com/watch/",
     "image": "assets/apps/espn.webp"
@@ -112,7 +117,7 @@
   },
   {
     "name": "Now.GG",
-    "url": "https://shuttle.lol/",
+    "url": "https://now.gg/",
     "image": "assets/apps/nowgg.png"
   },
   {
@@ -142,9 +147,8 @@
   },
   {
     "name": "Roblox",
-    "url": "https://shuttle.lol/apps/roblox-corporation/5349/roblox.html",
-    "image": "misc/roblos/rbx.jpeg",
-    "alert": "This works for some people."
+    "url": "https://www.easyfun.gg/embed/roblox.html",
+    "image": "misc/roblos/rbx.jpeg"
   },
   {
     "name": "Spotify",
@@ -205,7 +209,7 @@
   },
   {
     "name": "Snapchat",
-    "url": "https://shuttle.lol/apps/aptoide/5874/aptoide.html",
+    "url": "https://now.gg/apps/aptoide/5874/aptoide.html",
     "image": "/assets/apps/snapchat.png",
     "alert": "Search up snapchat, then download it and log in."
   },

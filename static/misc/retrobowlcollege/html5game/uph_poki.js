@@ -1,4 +1,4 @@
-console.log("Poki wrapper load");
+oconsole.log("Poki wrapper load");
 ///~
 function poki_init_raw() {
     console.log("Poki wrapper init");

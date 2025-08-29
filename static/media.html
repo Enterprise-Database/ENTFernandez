@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+  <script src="/assets/js/font.js"></script>
+  <meta name="google" content="notranslate" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=1" />
+  <link rel="stylesheet" href="/assets/css/nav.css?v=3" />
+  <link rel="stylesheet" type="text/css" href="/misc/media/css/media.css?v=1" />
+  <title>Google</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Rednotsus" />
+  <meta http-equiv="Cache-control" content="public">
+  <meta charset="utf-8">
+  </script>
+  <script src="/assets/js/script.js?v=12"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/misc/media/js/homepage.js?v=1"></script>
+  <script src="/misc/media/js/search.js?v=2"></script>
+  <script src="/assets/js/easteregg.min.js" async></script>
+</head>
+
+<body>
+  <nav>
+    <div class="navbar">
+      <a id="nav-title" href="/">Reds Exploit Corner</a>
+      <a href="/g"><i class="fa-solid fa-gamepad">&nbsp;</i>Games</a>
+      <a href="/a"><i class="fa-solid fa-box-archive">&nbsp;</i>Apps</a>
+      <a href="/-"><i class="fa-solid fa-tv">&nbsp;</i>Media</a>
+      <a href="/e"><i class="fa-solid fa-robot"></i>&nbsp;</i>AI</a>
+      <a href="/s"><i class="fa-solid fa-gears">&nbsp;</i>Settings</a>
+      <a href="/chat"><i class="fa-solid fa-comments">&nbsp;</i></a>
+      <a href="/profile"><i class="fa-solid fa-user"></i></a>
+    </div>
+  </nav>
+  <br>
+  <h1>Movies/TV</h1>
+  <input tag="searchbar" placeholder="Enter the Movie/TV Name and press Enter!" class="form__input" autocomplete="off">
+  <h5 id="cooldownNotice" style="display: none;">Hold on! You're on cooldown.</h5><br><br>
+  <br>
+  <div id="bigDiv">
+    <h3 class="title">Trending</h3>
+    <div id="game-container">
+      <p id="text"></p>
+    </div>
+    <br>
+    <div class="title-container">
+      <h3 class="title">Latest Movies &nbsp;&nbsp;
+      </h3>
+    </div>
+    <div class="scroll-container-wrapper">
+      <div class="scroll-container" id="movie-scroll-container">
+        <div id="movie-container">
+          <p id="text"></p>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="title-container">
+      <h3 class="title">Latest TV Shows
+      </h3>
+    </div>
+    <div class="scroll-container-wrapper">
+      <div class="scroll-container" id="tv-scroll-container">
+        <div id="tv-container">
+          <p id="text"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Images and Titles provided by
+    <a href="https://www.themoviedb.org/"><img src="/img/tmdb.svg" alt="TMDB Logo"
+        style="height: 20px; vertical-align: middle;"></a>
+  </div>
+</body>
+
+</html>
