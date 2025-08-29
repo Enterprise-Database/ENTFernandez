@@ -1,5 +1,6 @@
-name: Prettier
-
+permissions:
+  contents: write
+  name: Prettier
 on:
   pull_request:
     branches: [main]
