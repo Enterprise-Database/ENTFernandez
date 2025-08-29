@@ -9,8 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+ snyk-fix-bb9165ce483b500663518d44f352e540
+    "@tomphttp/bare-server-node": "2.0.2",
+
     "@tomphttp/bare-server-node": "2.0.5",
     "axios": "^1.8.3",
+ main
     "cors": "^2.8.5",
     "dompurify": "^3.2.6",
     "dotenv": "^16.4.5",
